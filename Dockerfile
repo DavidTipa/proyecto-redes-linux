@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y \
     openssh-server sudo curl wget \
     net-tools iproute2 vim cron \
-    rsyslog quota e2fsprogs && \
+    rsyslog quota e2fsprogs at && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /run/sshd && \

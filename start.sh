@@ -2,4 +2,5 @@
 service ssh start
 service cron start
 service rsyslog start
+service atd start
 sleep infinity
