@@ -1,0 +1,28 @@
+version: '3.8'
+
+networks:
+  red-proyecto:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24
+
+volumes:
+  vol-datos:
+
+services:
+  servidor:
+    build: .
+    container_name: servidor-ubuntu
+    hostname: servidor
+    networks:
+      red-proyecto:
+        ipv4_address: 192.168.100.10
+    ports:
+      - "2222:22"
+    volumes:
+      - vol-datos:/mnt/datos
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+    restart: unless-stopped
